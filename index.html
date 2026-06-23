@@ -123,9 +123,11 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--white);
-      max-width: 46ch;
+      max-width: 68ch;
       margin: clamp(44px, 10vh, 80px) auto 0;
     }
+    .scarcity span { display: block; }
+    .scarcity span + span { margin-top: 1.6em; }
 
     .soon {
       font-family: 'Barlow', sans-serif;
@@ -234,7 +236,7 @@
     <img class="logo" src="starbrew-logo.png" alt="StarBrew by Starbase Brewing" />
     <h1>The best beers aren't<br>born on Earth</h1>
 
-    <p class="scarcity">&ldquo;Starbrew&rdquo; is an ultra-limited release of the first beer brewed with spaceflown flight-proven yeast. The first step towards beer on Mars is launching soon.</p>
+    <p class="scarcity"><span>&ldquo;Starbrew&rdquo; is an ultra-limited release of the first beer brewed with spaceflown flight-proven yeast.</span><span>The first step to beer on Mars launches soon.</span></p>
 
     <div class="signup">
       <form id="signup-form" novalidate>
@@ -243,7 +245,7 @@
       </form>
       <p class="success" id="success">&#10003; You're on the list. Stand by.</p>
       <p class="error" id="error">Something went wrong. Please try again.</p>
-      <p class="form-note">Join the mission today, secure your allocation for first access.</p>
+      <p class="form-note">Secure your allocation. Join the mission today.</p>
     </div>
   </div>
 
