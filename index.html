@@ -79,7 +79,7 @@
     .logo {
       width: clamp(60px, 8vw, 84px);
       height: auto;
-      margin-bottom: clamp(40px, 8vh, 64px);
+      margin-bottom: clamp(56px, 13vh, 104px);
     }
 
     .eyebrow {
@@ -119,11 +119,12 @@
       font-family: 'Barlow', sans-serif;
       font-weight: 300;
       font-size: clamp(13px, 1.7vw, 15px);
-      line-height: 1.9;
+      line-height: 2;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--white);
-      margin-top: clamp(56px, 12vh, 100px);
+      max-width: 46ch;
+      margin: clamp(44px, 10vh, 80px) auto 0;
     }
 
     .soon {
@@ -138,7 +139,7 @@
     }
 
     /* ---------- Email capture ---------- */
-    .signup { width: 100%; max-width: 440px; }
+    .signup { width: 100%; max-width: 440px; margin-top: clamp(48px, 11vh, 90px); }
     form {
       display: flex;
       align-items: center;
@@ -231,13 +232,9 @@
 
   <div class="wrap">
     <img class="logo" src="starbrew-logo.png" alt="StarBrew by Starbase Brewing" />
-    <p class="eyebrow">The dawn of interplanetary brewing</p>
     <h1>The best beers aren't<br>born on Earth</h1>
-    <p class="lede">Starbrew is the first beer brewed with yeast flown to space and back<br>&mdash; and the first step toward beer on Mars.</p>
 
-    <p class="scarcity">Starbrew &mdash; an ultra-limited first release.</p>
-
-    <p class="soon">Secure allocation</p>
+    <p class="scarcity">&ldquo;Starbrew&rdquo; is an ultra-limited release of the first beer brewed with spaceflown flight-proven yeast. The first step towards beer on Mars is launching soon.</p>
 
     <div class="signup">
       <form id="signup-form" novalidate>
@@ -246,7 +243,7 @@
       </form>
       <p class="success" id="success">&#10003; You're on the list. Stand by.</p>
       <p class="error" id="error">Something went wrong. Please try again.</p>
-      <p class="form-note">Join the mission today. First access. First to orbit.</p>
+      <p class="form-note">Join the mission today, secure your allocation for first access.</p>
     </div>
   </div>
 
