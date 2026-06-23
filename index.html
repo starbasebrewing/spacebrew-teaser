@@ -10,6 +10,10 @@
   <meta property="og:description" content="Our goal is to brew the first beer on Mars. We're starting with the first beer brewed from space." />
   <meta property="og:type" content="website" />
 
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="apple-touch-icon" href="favicon-180.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -72,6 +76,12 @@
       text-align: center;
     }
 
+    .logo {
+      width: clamp(120px, 16vw, 168px);
+      height: auto;
+      margin-bottom: clamp(40px, 8vh, 64px);
+    }
+
     .eyebrow {
       font-family: 'Barlow', sans-serif;
       font-weight: 400;
@@ -80,7 +90,7 @@
       text-transform: uppercase;
       text-indent: 0.5em;
       color: var(--muted);
-      margin-bottom: clamp(72px, 18vh, 160px);
+      margin-bottom: clamp(56px, 14vh, 120px);
     }
 
     h1 {
@@ -220,6 +230,7 @@
   <div class="bg"><div class="stars"></div></div>
 
   <div class="wrap">
+    <img class="logo" src="starbrew-logo.png" alt="StarBrew by Starbase Brewing" />
     <p class="eyebrow">The dawn of interplanetary brewing</p>
     <h1>The best beers aren't<br>born on Earth</h1>
     <p class="lede">The first beer brewed with yeast flown to space and back<br>&mdash; and the first step toward beer on Mars.</p>
