@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starbase Brewing</title>
+  <meta name="description" content="Our goal is to brew the first beer on Mars. We're starting with the first beer brewed from space." />
+
+  <meta property="og:title" content="Starbase Brewing" />
+  <meta property="og:description" content="Our goal is to brew the first beer on Mars. We're starting with the first beer brewed from space." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.55);
+      --faint: rgba(255, 255, 255, 0.35);
+      --hairline: rgba(255, 255, 255, 0.25);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Barlow', system-ui, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(1200px 800px at 50% -20%, rgba(255,255,255,0.06), transparent 60%),
+        var(--black);
+    }
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,0.5), transparent),
+        radial-gradient(1px 1px at 160px 90px, rgba(255,255,255,0.3), transparent),
+        radial-gradient(1.1px 1.1px at 340px 220px, rgba(255,255,255,0.4), transparent),
+        radial-gradient(1px 1px at 480px 140px, rgba(255,255,255,0.22), transparent),
+        radial-gradient(1px 1px at 600px 380px, rgba(255,255,255,0.35), transparent);
+      background-repeat: repeat;
+      background-size: 760px 520px;
+      opacity: 0.32;
+      animation: drift 320s linear infinite;
+    }
+    @keyframes drift { from { transform: translateY(0); } to { transform: translateY(-420px); } }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 56px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .brand {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.62em;
+      text-transform: uppercase;
+      text-indent: 0.62em;
+      color: var(--white);
+      margin-bottom: clamp(72px, 18vh, 160px);
+    }
+
+    .eyebrow {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      text-indent: 0.5em;
+      color: var(--faint);
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 400;
+      font-size: clamp(40px, 8.2vw, 86px);
+      line-height: 1.06;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--white);
+      max-width: 15ch;
+    }
+
+    .lede {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: clamp(15px, 2.2vw, 18px);
+      line-height: 1.8;
+      letter-spacing: 0.03em;
+      color: var(--muted);
+      max-width: 38ch;
+      margin: 40px auto 0;
+    }
+
+    .scarcity {
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: clamp(13px, 1.7vw, 15px);
+      line-height: 1.9;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-top: clamp(56px, 12vh, 100px);
+    }
+
+    .soon {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.46em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-top: clamp(56px, 13vh, 100px);
+      margin-bottom: 36px;
+    }
+
+    /* ---------- Email capture ---------- */
+    .signup { width: 100%; max-width: 440px; }
+    form {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      border: none;
+      border-bottom: 1px solid var(--hairline);
+      background: transparent;
+      transition: border-color 0.3s ease;
+    }
+    form:focus-within { border-color: var(--white); }
+    input[type="email"] {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--white);
+      font-family: 'Barlow', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      padding: 14px 2px;
+    }
+    input::placeholder { color: var(--faint); }
+    button {
+      background: transparent;
+      color: var(--white);
+      border: none;
+      font-family: 'Barlow', sans-serif;
+      font-weight: 500;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      padding: 8px 2px;
+      cursor: pointer;
+      transition: opacity 0.2s ease;
+      white-space: nowrap;
+    }
+    button:hover { opacity: 0.6; }
+    .form-note {
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-top: 22px;
+    }
+    .success, .error {
+      display: none;
+      font-family: 'Barlow', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      padding: 15px 0;
+    }
+    .success { color: var(--white); }
+    .error { color: rgba(255,255,255,0.7); }
+    .success.show, .error.show { display: block; }
+    button[disabled] { opacity: 0.4; cursor: default; }
+    @media (max-width: 440px) {
+      input[type="email"] { font-size: 15px; }
+      button { letter-spacing: 0.18em; }
+    }
+
+    .foot {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 24px 28px 34px;
+      font-family: 'Barlow', sans-serif;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--faint);
+    }
+  </style>
+</head>
+<body>
+  <div class="bg"><div class="stars"></div></div>
+
+  <div class="wrap">
+    <div class="brand">Starbase&nbsp;Brewing</div>
+
+    <p class="eyebrow">The dawn of interplanetary brewing</p>
+    <h1>Beer was never meant to stay on Earth</h1>
+    <p class="lede">Our mission is the first beer brewed on Mars. It begins now — with the first beer in history made from yeast flown to space and back.</p>
+
+    <p class="scarcity">A strictly limited first release.<br>The list boards first &mdash; few others will.</p>
+
+    <p class="soon">Secure your place</p>
+
+    <div class="signup">
+      <form id="signup-form" novalidate>
+        <input type="email" id="email" placeholder="your@email.com" autocomplete="email" required />
+        <button type="submit">Notify Me</button>
+      </form>
+      <p class="success" id="success">&#10003; You're on the list. Stand by.</p>
+      <p class="error" id="error">Something went wrong. Please try again.</p>
+      <p class="form-note">Join the list. First access. First to orbit.</p>
+    </div>
+  </div>
+
+  <div class="foot">&copy; 2026 Starbase Brewing &middot; The Official Brewery of Mars</div>
+
+  <script>
+    /* ===================================================================
+       KLAVIYO SETUP — fill in these two values:
+       1. COMPANY_ID — your Klaviyo *public* API key / Site ID (6 chars).
+          Find it: Klaviyo > Settings > Account > API Keys ("Public API Key").
+          This is safe to expose in client-side code.
+       2. LIST_ID — the ID of the list to subscribe people to.
+          Find it: Klaviyo > Audience > Lists & Segments > [your list] >
+          Settings, or it's in the URL when viewing the list.
+       =================================================================== */
+    const KLAVIYO = {
+      COMPANY_ID: 'T76WE3',
+      LIST_ID: 'VLBLNv',
+    };
+
+    const form = document.getElementById('signup-form');
+    const success = document.getElementById('success');
+    const errorEl = document.getElementById('error');
+    const button = form.querySelector('button');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const emailInput = document.getElementById('email');
+      const email = emailInput.value.trim();
+      if (!email || !emailInput.checkValidity()) { emailInput.focus(); return; }
+
+      errorEl.classList.remove('show');
+      button.disabled = true;
+      button.textContent = 'Sending…';
+
+      try {
+        const res = await fetch(
+          `https://a.klaviyo.com/client/subscriptions/?company_id=${KLAVIYO.COMPANY_ID}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              revision: '2024-10-15',
+            },
+            body: JSON.stringify({
+              data: {
+                type: 'subscription',
+                attributes: {
+                  profile: {
+                    data: {
+                      type: 'profile',
+                      attributes: { email },
+                    },
+                  },
+                },
+                relationships: {
+                  list: { data: { type: 'list', id: KLAVIYO.LIST_ID } },
+                },
+              },
+            }),
+          }
+        );
+
+        if (!res.ok) throw new Error('Klaviyo responded ' + res.status);
+
+        form.style.display = 'none';
+        success.classList.add('show');
+      } catch (err) {
+        console.error('Klaviyo signup failed:', err);
+        button.disabled = false;
+        button.textContent = 'Notify Me';
+        errorEl.classList.add('show');
+      }
+    });
+  </script>
+</body>
+</html>
